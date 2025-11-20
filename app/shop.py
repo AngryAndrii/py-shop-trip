@@ -16,7 +16,9 @@ class Shop:
                 return False
         return True
 
-    def buy_products(self, customer: CustomerProtocol, fuel_price: float) -> None:
+    def buy_products(self,
+                     customer: CustomerProtocol,
+                     fuel_price: float) -> None:
         started_location = customer.location
         print(f"{customer.name} rides to {self.name}")
         customer.location = self.location
