@@ -17,6 +17,7 @@ class Shop:
         return True
 
     def buy_products(self, customer: CustomerProtocol) -> None:
+        started_location = customer.location
         print(f"{customer.name} rides to {self.name}")
         customer.location = self.location
         print()
@@ -33,3 +34,4 @@ class Shop:
         remind = customer.money - customer.calc_trip_cost(self, 2.4)
         print(f"{customer.name} rides home\n{customer.name} "
               f"now has {remind} dollars\n")
+        customer.location = started_location
