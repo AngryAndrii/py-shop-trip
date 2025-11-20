@@ -17,16 +17,18 @@ class Shop:
         return True
 
     def buy_products(self, customer: CustomerProtocol) -> None:
-        print(f"{customer.name} rides to {self.name}\n")
+        print(f"{customer.name} rides to {self.name}")
+        print()
         print("Date: 04/01/2021 12:33:41")
         print(f"Thanks, {customer.name}, "
-              f"for your purchase!\nYou have bought: ")
+              f"for your purchase!\nYou have bought:")
         total = 0
         for product, amount in customer.product_cart.items():
             price_for_couple = amount * self.products[str(product)]
             print(f"{amount} {product}s for {price_for_couple} dollars")
             total += price_for_couple
-        print(f"Total cost is {total} dollars\nSee you again!\n")
+        print(f"Total cost is {total} dollars\nSee you again!")
+        print()
         remind = customer.money - customer.calc_trip_cost(self, 2.4)
         print(f"{customer.name} rides home\n{customer.name} "
               f"now has {remind} dollars\n")
