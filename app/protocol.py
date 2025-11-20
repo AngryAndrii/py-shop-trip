@@ -3,19 +3,19 @@ from typing import Protocol
 
 class ShopProtocol(Protocol):
     name: str
-    location: tuple[float, float]
+    location: list[int]
     products: dict[str, int | float]
 
     def check_products(self, cart: dict[str, int]) -> bool:
         ...
 
-    def buy_product(self, customer: "CustomerProtocol") -> None:
+    def buy_products(self, customer: "CustomerProtocol") -> None:
         ...
 
 
 class CustomerProtocol(Protocol):
     name: str
-    product_cart: dict[int, float]
+    product_cart: dict[str, float | int]
     location: list[int]
     money: int
     car: "CarProtocol"

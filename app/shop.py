@@ -18,6 +18,7 @@ class Shop:
 
     def buy_products(self, customer: CustomerProtocol) -> None:
         print(f"{customer.name} rides to {self.name}")
+        customer.location = self.location
         print()
         print("Date: 04/01/2021 12:33:41")
         print(f"Thanks, {customer.name}, "
@@ -29,6 +30,6 @@ class Shop:
             total += price_for_couple
         print(f"Total cost is {total} dollars\nSee you again!")
         print()
-        remind = customer.money - customer.calc_trip_cost(self, 2.4)
+        remind = customer.money - customer.calc_trip_cost(self)
         print(f"{customer.name} rides home\n{customer.name} "
               f"now has {remind} dollars\n")

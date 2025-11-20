@@ -3,7 +3,7 @@ from app.protocol import CarProtocol, ShopProtocol
 
 class Customer:
     def __init__(self, name: str,
-                 product_cart: dict[int, float],
+                 product_cart: dict[str, int],
                  location: list[int],
                  money: int,
                  car: CarProtocol) -> None:
@@ -13,7 +13,9 @@ class Customer:
         self.money = money
         self.car = car
 
-    def calc_trip_cost(self, shop: ShopProtocol, fuel_price: float) -> None:
+    def calc_trip_cost(self,
+                       shop: ShopProtocol,
+                       fuel_price: float = 2.4) -> float:
         x_home, y_home = self.location
         x_shop, y_shop = shop.location
         distance = ((x_shop - x_home) ** 2 + (y_shop - y_home) ** 2) ** 0.5
