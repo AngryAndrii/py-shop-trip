@@ -30,6 +30,6 @@ class Shop:
             total += price_for_couple
         print(f"Total cost is {total} dollars\nSee you again!")
         print()
-        remind = customer.money - customer.calc_trip_cost(self)
+        remind = customer.money - customer.calc_trip_cost(self, 2.4)
         print(f"{customer.name} rides home\n{customer.name} "
               f"now has {remind} dollars\n")
